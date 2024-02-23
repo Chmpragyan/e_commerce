@@ -1,11 +1,11 @@
 import 'package:e_commerce/core/Constants/image_constant.dart';
-import 'package:e_commerce/presentation/screen/primary_screen/login_screen/widgets/login_text_form_field.dart';
+import 'package:e_commerce/presentation/screen/primary_screen/register_screen/widget/register_text_form_field.dart';
 import 'package:e_commerce/presentation/screen/primary_screen/widgets/primary_text.dart';
 import 'package:e_commerce/presentation/screen/primary_screen/widgets/sized_box.dart';
 import 'package:flutter/material.dart';
 
-class LoginBody extends StatelessWidget {
-  const LoginBody({super.key});
+class RegisterBody extends StatelessWidget {
+  const RegisterBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,11 @@ class LoginBody extends StatelessWidget {
           height: 150,
         ),
         SizedBoxHeight(),
-        CustomHeading(heading: "Welcome to F-Shop",),
+        CustomHeading(heading: "Let's Get Started",),
         SizedBoxHeight(),
-        CustomSubHeading(subHeading: "Sign in to continue",),
+        CustomSubHeading(subHeading: "Create a new account",),
         SizedBoxHeight(),
-        CustomLoginTextField(),
+        CustomRegisterTextField(),
         SizedBoxHeight(),
       ],
     );
