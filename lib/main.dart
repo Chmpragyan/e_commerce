@@ -1,5 +1,5 @@
-// import 'package:e_commerce/presentation/screen/primary_screen/splash_screen/body.dart';
-import 'package:e_commerce/presentation/screen/secondary_screen/home_screen/body.dart';
+import 'package:e_commerce/presentation/screen/primary_screen/splash_screen/body.dart';
+// import 'package:e_commerce/presentation/screen/secondary_screen/home_screen/body.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashScreen(),
-      home: HomeScreen(),
+      home: SplashScreen(),
+      // home: HomeScreen(),
     );
   }
 }
