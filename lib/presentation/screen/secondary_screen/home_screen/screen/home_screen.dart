@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -34,18 +35,44 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: productList.length,
-      itemBuilder: (context, index) {
-      final product = productList[index];
-      return Card(
-        child: ListTile(
-          leading: CircleAvatar(backgroundImage: NetworkImage("${product.image}"),),
-          title: Text("Title"),
-          subtitle: Text("Subtitle"),
-        ),
-      );
-    });
+    return SingleChildScrollView(
+      child: productList.isNotEmpty
+          ? Column(
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                CarouselSlider.builder(
+                  itemCount: productList.length,
+                  itemBuilder: (context, index, realIndex) {
+                    final product = productList[index];
+                    return Card(
+                      elevation: 4.0,
+                      child: Image(
+                        image: NetworkImage("${product.image}"),
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                  options: CarouselOptions(
+                    // pageSnapping: true,
+                    aspectRatio: 12 / 5,
+                    viewportFraction: 0.35,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: false,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+              ],
+            )
+          : Center(child: CircularProgressIndicator()),
+    );
   }
 }
 
